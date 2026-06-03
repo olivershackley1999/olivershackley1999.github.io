@@ -1,0 +1,39 @@
+---
+layout: default
+---
+{%- assign topic = page.categories | first | default: "Notes" -%}
+{%- assign words = page.content | number_of_words -%}
+{%- assign read = words | divided_by: site.reading_wpm | plus: 1 -%}
+
+<article class="wrap article">
+  <div class="col">
+    <a class="backlink" href="{{ '/' | relative_url }}"><span class="arrow">←</span> Context Window</a>
+
+    <div class="topmeta">
+      <span class="topic">{{ topic }}</span>
+      <span class="dot"></span>
+      <span class="date">{{ page.date | date: "%b %-d, %Y" }}</span>
+    </div>
+
+    <h1 class="title">{{ page.title }}</h1>
+
+    {%- if page.description -%}
+    <p class="standfirst">{{ page.description }}</p>
+    {%- endif -%}
+
+    <div class="byline">
+      <span>{{ site.author.name }}</span>
+      <span class="accent-dot">/</span>
+      <span class="read">{{ read }} min read</span>
+    </div>
+
+    <div class="prose">
+      {{ content }}
+    </div>
+
+    <div class="endnote">
+      <span class="author">Written by <b>{{ site.author.name }}</b> · {{ site.tagline }}</span>
+      <a class="backlink" href="{{ '/archive/' | relative_url }}">All dispatches <span class="arrow">→</span></a>
+    </div>
+  </div>
+</article>

@@ -1,0 +1,37 @@
+---
+layout: page
+title: Archive
+permalink: /archive/
+wide: true
+description: Every dispatch from Context Window — field notes on frontier AI across the Microsoft stack.
+---
+
+<div class="topics" id="topic-filter" style="margin: 0 0 14px;">
+  <a href="{{ '/archive/' | relative_url }}" data-topic="" class="active">All</a>
+  {%- for topic in site.data.topics -%}
+  <a href="{{ '/archive/' | relative_url }}?topic={{ topic | uri_escape }}" data-topic="{{ topic | downcase }}">{{ topic }}</a>
+  {%- endfor -%}
+</div>
+
+<div class="list" id="archive-list">
+  {%- for post in site.posts -%}
+  {%- assign p_topic = post.categories | first | default: "Notes" -%}
+  {%- assign p_words = post.content | number_of_words -%}
+  {%- assign p_read = p_words | divided_by: site.reading_wpm | plus: 1 -%}
+  {%- assign p_dek = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 150 -%}
+  <a class="post" href="{{ post.url | relative_url }}" data-topic="{{ p_topic | downcase }}">
+    <div class="num">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</div>
+    <div class="body">
+      <div class="topmeta">
+        <span class="topic">{{ p_topic }}</span>
+        <span class="dot"></span>
+        <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+      </div>
+      <h3>{{ post.title }}</h3>
+      <p class="dek">{{ p_dek }}</p>
+    </div>
+    <div class="read">{{ p_read }} min</div>
+  </a>
+  {%- endfor -%}
+  <div class="empty" id="archive-empty" hidden>No dispatches in this topic yet — more soon.</div>
+</div>

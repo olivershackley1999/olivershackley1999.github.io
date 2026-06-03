@@ -1,0 +1,107 @@
+---
+layout: default
+---
+
+{%- comment -%}
+  Featured = the post flagged `featured: true`, else the most recent post.
+  The rest of the list excludes whichever post is featured.
+{%- endcomment -%}
+{%- assign featured = site.posts | where: "featured", true | first -%}
+{%- unless featured -%}{%- assign featured = site.posts | first -%}{%- endunless -%}
+{%- assign rest = site.posts | where_exp: "p", "p.url != featured.url" -%}
+
+<div class="wrap">
+  <div class="strip">
+    <div class="tag">Dispatch log &nbsp;·&nbsp; <b>{{ site.tagline }}</b></div>
+    <div class="tag accent-dot">● live</div>
+  </div>
+</div>
+
+{%- if featured -%}
+{%- assign f_topic = featured.categories | first | default: "Notes" -%}
+{%- assign f_words = featured.content | number_of_words -%}
+{%- assign f_read = f_words | divided_by: site.reading_wpm | plus: 1 -%}
+{%- assign f_dek = featured.description | default: featured.excerpt | strip_html | strip_newlines | truncate: 170 -%}
+<section class="wrap hero">
+  <div class="hero-grid">
+    <div class="reveal">
+      <div class="meta-row">
+        <span class="pill">Featured</span>
+        <span class="eyebrow">{{ f_topic }}</span>
+      </div>
+      <h1>{{ featured.title }}</h1>
+      <p class="dek">{{ f_dek }}</p>
+      <div class="byline">
+        <span>{{ featured.date | date: "%b %-d, %Y" }}</span>
+        <span class="accent-dot">/</span>
+        <span class="read">{{ f_read }} min read</span>
+      </div>
+      <a class="cta" href="{{ featured.url | relative_url }}">Read the dispatch <span class="arrow">→</span></a>
+    </div>
+
+    <a class="reveal cover" href="{{ featured.url | relative_url }}" aria-hidden="true" tabindex="-1">
+      <div class="grid-bg"></div>
+      <div class="panel">
+        <div class="bar"><i></i><i></i><i></i><span>context.window</span></div>
+        <div class="stream">
+          <div class="tok"></div><div class="tok"></div><div class="tok"></div><div class="tok"></div>
+          <div class="tok live"></div>
+        </div>
+        <div class="footnote"><span>{{ f_topic | downcase }} · {{ featured.date | date: "%b %Y" | downcase }}</span><span>tokens ↗</span></div>
+      </div>
+    </a>
+  </div>
+</section>
+{%- endif -%}
+
+<section class="wrap" id="latest">
+  <div class="section-head">
+    <h2>Latest dispatches</h2>
+    <a class="count" href="{{ '/archive/' | relative_url }}">{{ rest | size | prepend: "0" | slice: -2, 2 }} / archive →</a>
+  </div>
+  <div class="list">
+    {%- for post in rest -%}
+    {%- assign p_topic = post.categories | first | default: "Notes" -%}
+    {%- assign p_words = post.content | number_of_words -%}
+    {%- assign p_read = p_words | divided_by: site.reading_wpm | plus: 1 -%}
+    {%- assign p_dek = post.description | default: post.excerpt | strip_html | strip_newlines | truncate: 150 -%}
+    <a class="post reveal" href="{{ post.url | relative_url }}">
+      <div class="num">{{ forloop.index | prepend: "0" | slice: -2, 2 }}</div>
+      <div class="body">
+        <div class="topmeta">
+          <span class="topic">{{ p_topic }}</span>
+          <span class="dot"></span>
+          <span class="date">{{ post.date | date: "%b %-d, %Y" }}</span>
+        </div>
+        <h3>{{ post.title }}</h3>
+        <p class="dek">{{ p_dek }}</p>
+      </div>
+      <div class="read">{{ p_read }} min</div>
+    </a>
+    {%- else -%}
+    <div class="empty">No other dispatches yet — more soon.</div>
+    {%- endfor -%}
+  </div>
+</section>
+
+<section class="wrap endcap">
+  <div class="endcap-grid">
+    <div class="reveal" id="topics">
+      <span class="eyebrow">Browse by topic</span>
+      <div class="topics">
+        {%- for topic in site.data.topics -%}
+        <a href="{{ '/archive/' | relative_url }}?topic={{ topic | uri_escape }}">{{ topic }}</a>
+        {%- endfor -%}
+      </div>
+    </div>
+    <div class="reveal news">
+      <h4>Follow along.</h4>
+      <p>New dispatches on shipping AI inside the Microsoft stack. No fluff, no recycled press releases.</p>
+      <div class="follow">
+        <a class="btn primary" href="{{ '/feed.xml' | relative_url }}">Subscribe via RSS</a>
+        {% if site.profiles.linkedin %}<a class="btn ghost" href="{{ site.profiles.linkedin }}" target="_blank" rel="noopener">LinkedIn</a>{% endif %}
+        {% if site.profiles.github %}<a class="btn ghost" href="{{ site.profiles.github }}" target="_blank" rel="noopener">GitHub</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>

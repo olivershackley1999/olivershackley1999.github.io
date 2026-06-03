@@ -1,0 +1,9 @@
+---
+layout: default
+---
+<section class="wrap page">
+  <div class="col {% if page.wide %}archive-list{% endif %}">
+    {%- if page.title -%}<h1 class="title">{{ page.title }}</h1>{%- endif -%}
+    {%- if page.has_prose -%}<div class="prose">{{ content }}</div>{%- else -%}{{ content }}{%- endif -%}
+  </div>
+</section>

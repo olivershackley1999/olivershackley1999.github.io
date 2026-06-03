@@ -3,7 +3,8 @@ title: Welcome to Context Window
 date: 2026-06-02 09:00:00 -0700
 categories: [Meta]
 tags: [welcome]
-pin: true
+featured: true
+description: Field notes on Microsoft's AI solutions — not just how they work, but how they get used at work, born out of real customer conversations and deployments.
 ---
 
 I'm Oliver, a Cloud Solution Architect at Microsoft. This is where I write about Microsoft's AI solutions. Not just how they work, but how they get used at work for maximum impact.
