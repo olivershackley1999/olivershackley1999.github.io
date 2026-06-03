@@ -41,9 +41,7 @@ social:
   links:
     # The first element serves as the copyright owner's link
     - https://github.com/olivershackley1999 # GitHub homepage
-    # Uncomment / add more as you like:
-    # - https://www.linkedin.com/in/your-handle
-    # - https://twitter.com/your-handle
+    - https://www.linkedin.com/in/olivershackley # LinkedIn
 
 # Site Verification Settings
 webmaster_verifications:
