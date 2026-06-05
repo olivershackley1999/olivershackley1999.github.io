@@ -17,12 +17,12 @@ social:
   name: Oliver Shackley
   links:
     - https://github.com/olivershackley1999
-    - https://www.linkedin.com/in/olivershackley
+    - https://www.linkedin.com/in/oliver-shackley
 
 # External profile links surfaced in the footer / "follow" block
 profiles:
   github: https://github.com/olivershackley1999
-  linkedin: https://www.linkedin.com/in/olivershackley
+  linkedin: https://www.linkedin.com/in/oliver-shackley
 
 # Words-per-minute used to estimate read time on cards and articles
 reading_wpm: 200
