@@ -423,6 +423,14 @@ footer.foot { border-top: 1px solid var(--line-strong); padding: 40px 0 60px; }
   .give-amount { font-size: 34px; }
 }
 
+/* Home-page donation panel — same block, given its own breathing room. */
+.give-home { padding: 26px 0 10px; }
+.give-home .give { max-width: 880px; margin: 0 auto; }
+
+/* When there are no topics yet, the endcap is just the follow block. */
+.endcap-grid.solo { grid-template-columns: 1fr; }
+.endcap-grid.solo .news { max-width: 560px; }
+
 /* ── Simple page (about / archive) ─────────────────────── */
 .page { padding: var(--pad-section) 0 calc(var(--pad-section) + 10px); }
 .page .col { max-width: 720px; margin: 0 auto; }

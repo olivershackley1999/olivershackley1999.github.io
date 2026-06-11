@@ -84,16 +84,22 @@ layout: default
   </div>
 </section>
 
+<section class="wrap give-home">
+  {% include donate.html %}
+</section>
+
 <section class="wrap endcap">
-  <div class="endcap-grid">
+  <div class="endcap-grid{% if site.categories.size == 0 %} solo{% endif %}">
+    {%- if site.categories.size > 0 -%}
     <div class="reveal" id="topics">
       <span class="eyebrow">Browse by topic</span>
       <div class="topics">
-        {%- for topic in site.data.topics -%}
-        <a href="{{ '/archive/' | relative_url }}?topic={{ topic | uri_escape }}">{{ topic }}</a>
+        {%- for cat in site.categories -%}
+        <a href="{{ '/archive/' | relative_url }}?topic={{ cat[0] | uri_escape }}">{{ cat[0] }}</a>
         {%- endfor -%}
       </div>
     </div>
+    {%- endif -%}
     <div class="reveal news">
       <h4>Follow along.</h4>
       <p>New dispatches on shipping AI inside the Microsoft stack. No fluff, no recycled press releases.</p>

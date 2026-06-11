@@ -8,8 +8,8 @@ description: Every dispatch from Context Window — field notes on frontier AI a
 
 <div class="topics" id="topic-filter" style="margin: 0 0 14px;">
   <a href="{{ '/archive/' | relative_url }}" data-topic="" class="active">All</a>
-  {%- for topic in site.data.topics -%}
-  <a href="{{ '/archive/' | relative_url }}?topic={{ topic | uri_escape }}" data-topic="{{ topic | downcase }}">{{ topic }}</a>
+  {%- for cat in site.categories -%}
+  <a href="{{ '/archive/' | relative_url }}?topic={{ cat[0] | uri_escape }}" data-topic="{{ cat[0] | downcase }}">{{ cat[0] }}</a>
   {%- endfor -%}
 </div>
 
