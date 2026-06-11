@@ -1,0 +1,45 @@
+{%- comment -%}
+  Reader donation block. Appears at the foot of every post.
+  Honor-system tally backed by Abacus (free hosted +1 counters, CORS-open,
+  keys auto-create on first hit). One counter per preset amount; the dollar
+  total is computed client-side as the sum of amount x that bucket's count.
+  Degrades cleanly without JS: the charity links work, the tally stays hidden.
+{%- endcomment -%}
+<aside class="give reveal" aria-labelledby="give-h"
+       data-give-ns="oshackley-cw"
+       data-give-buckets="5,10,25,50">
+  <span class="eyebrow">No ads · No paywall · No profit</span>
+  <h2 id="give-h">This site doesn't make money</h2>
+  <p class="give-lede">
+    I write Context Window to get the ideas out, not to sell you anything.
+    There is nothing to buy here and no ads. If something on this site helped
+    you, send a few dollars to a charity you care about. Pick any cause you
+    want. I never see the money, and that is the point.
+  </p>
+
+  <div class="give-actions">
+    <a class="btn primary" href="https://www.every.org/" target="_blank" rel="noopener">
+      Donate to any nonprofit <span class="arrow">→</span>
+    </a>
+    <a class="btn ghost" href="https://www.givewell.org/charities/top-charities" target="_blank" rel="noopener">
+      Need a place to start?
+    </a>
+  </div>
+
+  <div class="give-tally" hidden>
+    <div class="give-total">
+      <span class="give-amount" data-give-amount>$0</span>
+      <span class="give-sub">sent by readers so far · <span data-give-count>0</span> gifts</span>
+    </div>
+    <div class="give-add">
+      <span class="give-add-label">Gave something? Add it to the running tally.</span>
+      <div class="give-buttons">
+        <button type="button" class="give-chip" data-give-amt="5">$5</button>
+        <button type="button" class="give-chip" data-give-amt="10">$10</button>
+        <button type="button" class="give-chip" data-give-amt="25">$25</button>
+        <button type="button" class="give-chip" data-give-amt="50">$50</button>
+      </div>
+      <p class="give-fine">Honor system. Tapping a button adds to the running total on this page. It does not move any money.</p>
+    </div>
+  </div>
+</aside>
