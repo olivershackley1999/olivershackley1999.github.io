@@ -12,7 +12,7 @@ I get a version of the same question almost every week from a customer. The prem
 
 It's a fair question, and the fact that it's hard to answer is the real story. We have shipped a lot of Copilots, and although they differ, they overlap. To the person who has to actually get work done, the line between "ask Copilot," "use the Researcher agent," and "hand it to Cowork" is blurry.
 
-**This post is about one of those tools, Cowork, which went GA on June 16th, 2026. Cowork as a product gets plenty of attention, but the governance behind it does not, so I want to focus on the two things you have to get right before you let your company loose on it. When to reach for it. And how to keep it from quietly running up a bill.**
+This post is about one of those tools, Cowork, which went GA on June 16th, 2026. Cowork as a product gets plenty of attention, but the governance behind it does not, so I want to focus on the two things you have to get right before you let your company loose on it, which are (1) when to reach for it and (2) how to keep it from quietly running up a bill.
 
 ## What Cowork is
 
