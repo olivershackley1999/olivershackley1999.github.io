@@ -1,7 +1,7 @@
 ---
 title: Cowork, and the problem of too many Copilots
 date: 2026-06-30 09:00:00 -0700
-categories: [Agents 365]
+categories: [Copilot Cowork]
 tags: [cowork, agents, microsoft-365, copilot, governance]
 description: Cowork is the autonomous, metered one. Here is how to decide when to reach for it, how to govern it like cloud spend, and where I think this whole thing is heading.
 ---

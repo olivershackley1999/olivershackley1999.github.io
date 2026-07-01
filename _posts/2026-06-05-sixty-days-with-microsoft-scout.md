@@ -1,7 +1,7 @@
 ---
 title: Sixty days with Microsoft Scout
 date: 2026-06-05 09:00:00 -0700
-categories: [Agents 365]
+categories: [Microsoft Scout]
 tags: [scout, agents, microsoft-365]
 description: An autonomous agent that lives inside Microsoft 365. Here is what it actually did for me, and where it still falls down.
 ---
